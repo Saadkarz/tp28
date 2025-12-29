@@ -300,6 +300,50 @@ docker restart sonarqube
 
 ---
 
+## 📈 Résultats de l'Analyse (Book_Service_TP28)
+
+### Dashboard Overview
+
+![SonarQube Dashboard](Screenshots/sonarqube_overview.png)
+
+### 🎯 Quality Gate : ✅ **PASSED**
+
+L'analyse du projet `book-service` a été réalisée avec succès. Voici les résultats :
+
+| Métrique | Valeur | Note |
+|----------|--------|------|
+| **Quality Gate** | ✅ PASSED | Toutes les conditions satisfaites |
+| **Bugs** | 0 | **A** |
+| **Vulnérabilités** | 0 | **A** |
+| **Security Hotspots** | 0 | **A** |
+| **Code Smells** | 7 | **A** |
+| **Dette Technique** | 1h 12min | **A** |
+| **Couverture** | 0.0% | 176 lignes à couvrir |
+| **Duplications** | 5.3% | 2 blocs dupliqués |
+
+### 📋 Liste des Code Smells Détectés
+
+![Issues List](Screenshots/issues_list.png)
+
+| Fichier | Ligne | Sévérité | Description | Effort |
+|---------|-------|----------|-------------|--------|
+| **PricingClient.java** | 60 | 🟠 Major | Exception générique au lieu d'une dédiée | 20min |
+| **PricingClient.java** | 62 | 🟠 Major | Exception non logguée ni transmise | 15min |
+| **BorrowResponseDTO.java** | 15 | 🔴 Critical | Méthode vide sans commentaire | 5min |
+| **GlobalExceptionHandler.java** | 21 | 🔴 Critical | Littéral "timestamp" dupliqué 3x | 8min |
+| **GlobalExceptionHandler.java** | 22 | 🔴 Critical | Littéral "status" dupliqué 3x | 8min |
+| **GlobalExceptionHandler.java** | 23 | 🔴 Critical | Littéral "error" dupliqué 3x | 8min |
+| **GlobalExceptionHandler.java** | 24 | 🔴 Critical | Littéral "message" dupliqué 3x | 8min |
+
+### 🔧 Actions Recommandées
+
+1. **Priorité Haute** : Définir des constantes pour les littéraux dupliqués dans `GlobalExceptionHandler.java`
+2. **Priorité Moyenne** : Améliorer la gestion des exceptions dans `PricingClient.java`
+3. **Priorité Basse** : Ajouter un commentaire explicatif ou implémenter la méthode vide dans `BorrowResponseDTO.java`
+4. **Amélioration Continue** : Ajouter des tests unitaires pour augmenter la couverture de code
+
+---
+
 ## 📝 Mini-Récap
 
 - ✅ SonarQube tourne en local via Docker sur `localhost:9000`
